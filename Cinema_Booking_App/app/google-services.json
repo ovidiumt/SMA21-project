@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "672713967594",
+    "project_id": "cinemabookingapp-deb3c",
+    "storage_bucket": "cinemabookingapp-deb3c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672713967594:android:b103d69b37894ffc935493",
+        "android_client_info": {
+          "package_name": "com.upt.cti.cinemabookingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672713967594-169dttb0m1t0385s27hl1ftppf7e5l2b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsZfuTNAFVXxlqZnzmQg4rgtxcqR2KEFM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672713967594-169dttb0m1t0385s27hl1ftppf7e5l2b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
