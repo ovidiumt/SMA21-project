@@ -1,13 +1,13 @@
 package com.upt.cti.cinemabookingapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -39,7 +39,8 @@ public class MoviesLVAdapter extends ArrayAdapter<Movie> {
         Picasso.get().load(movie.getImgUrl()).into(movieImage);
 
         listItemView.setOnClickListener(v ->
-                Toast.makeText(getContext(), "Movie clicked is: " + movie.getName(), Toast.LENGTH_SHORT).show());
+                getContext().startActivity(new Intent(getContext().getApplicationContext(), Booking.class)));
+
         return listItemView;
     }
 }

@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Ovidiu/Documents/GitHub/SMA21-project/Cinema_Booking_App/app/src/main/res/layout/activity_booking.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Ovidiu/Documents/GitHub/SMA21-project/Cinema_Booking_App/app/src/main/res/layout/activity_confirm.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ovidiu/Documents/GitHub/SMA21-project/Cinema_Booking_App/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ovidiu/Documents/GitHub/SMA21-project/Cinema_Booking_App/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/Ovidiu/Documents/GitHub/SMA21-project/Cinema_Booking_App/app/src/main/res/layout/activity_payment.xml" value="0.264" />
         <entry key="..\:/Users/Ovidiu/Documents/GitHub/SMA21-project/Cinema_Booking_App/app/src/main/res/layout/activity_register.xml" value="0.264" />
         <entry key="..\:/Users/Ovidiu/Documents/GitHub/SMA21-project/Cinema_Booking_App/app/src/main/res/layout/movie_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Ovidiu/Documents/GitHub/SMA21-project/Cinema_Booking_App/app/src/main/res/layout/popup_confirm.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
