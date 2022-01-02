@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,9 +35,15 @@ public class MoviesLVAdapter extends ArrayAdapter<Movie> {
 
         TextView movieName = listItemView.findViewById(R.id.textViewMovieName);
         ImageView movieImage = listItemView.findViewById(R.id.imageViewMovie);
+        Button firstHour = listItemView.findViewById(R.id.buttonHour1);
+        Button secondHour = listItemView.findViewById(R.id.buttonHour2);
+        Button thirdHour = listItemView.findViewById(R.id.buttonHour3);
 
         movieName.setText(movie.getName());
         Picasso.get().load(movie.getImgUrl()).into(movieImage);
+        firstHour.setText(movie.getFirstHour());
+        secondHour.setText(movie.getSecondHour());
+        thirdHour.setText(movie.getThirdHour());
 
         listItemView.setOnClickListener(v ->
                 getContext().startActivity(new Intent(getContext().getApplicationContext(), Booking.class)));

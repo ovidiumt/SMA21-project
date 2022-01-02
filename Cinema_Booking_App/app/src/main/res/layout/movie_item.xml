@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="4dp"
+    android:layout_margin="0dp"
     android:background="@drawable/background"
     android:padding="2dp"
     app:cardBackgroundColor="#00FFFFFF"
@@ -18,7 +18,7 @@
             android:id="@+id/imageViewMovie"
             android:layout_width="108dp"
             android:layout_height="151dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="3dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:background="@color/white"
@@ -27,13 +27,41 @@
 
         <TextView
             android:id="@+id/textViewMovieName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="158dp"
+            android:layout_height="49dp"
             android:layout_alignParentTop="true"
             android:layout_marginStart="35dp"
             android:layout_marginTop="11dp"
             android:layout_toEndOf="@+id/imageViewMovie"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/buttonHour1"
+            android:layout_width="75dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/textViewMovieName"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="42dp"
+            android:layout_toEndOf="@+id/imageViewMovie" />
+
+        <Button
+            android:id="@+id/buttonHour2"
+            android:layout_width="75dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/textViewMovieName"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="42dp"
+            android:layout_toEndOf="@+id/buttonHour1" />
+
+        <Button
+            android:id="@+id/buttonHour3"
+            android:layout_width="75dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/textViewMovieName"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="42dp"
+            android:layout_toEndOf="@+id/buttonHour2" />
 
     </RelativeLayout>
 
