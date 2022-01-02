@@ -46,7 +46,7 @@ public class MoviesLVAdapter extends ArrayAdapter<Movie> {
         thirdHour.setText(movie.getThirdHour());
 
         listItemView.setOnClickListener(v ->
-                getContext().startActivity(new Intent(getContext().getApplicationContext(), Booking.class)));
+                getContext().startActivity(new Intent(getContext().getApplicationContext(), Seats.class)));
 
         return listItemView;
     }
