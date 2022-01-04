@@ -35,9 +35,9 @@ public class MoviesLVAdapter extends ArrayAdapter<Movie> {
 
         TextView movieName = listItemView.findViewById(R.id.textViewMovieName);
         ImageView movieImage = listItemView.findViewById(R.id.imageViewMovie);
-        Button firstHour = listItemView.findViewById(R.id.buttonHour1);
-        Button secondHour = listItemView.findViewById(R.id.buttonHour2);
-        Button thirdHour = listItemView.findViewById(R.id.buttonHour3);
+        Button firstHour = listItemView.findViewById(R.id.firstHour);
+        Button secondHour = listItemView.findViewById(R.id.secondHour);
+        Button thirdHour = listItemView.findViewById(R.id.thirdHour);
 
         movieName.setText(movie.getName());
         Picasso.get().load(movie.getImgUrl()).into(movieImage);
@@ -45,9 +45,20 @@ public class MoviesLVAdapter extends ArrayAdapter<Movie> {
         secondHour.setText(movie.getSecondHour());
         thirdHour.setText(movie.getThirdHour());
 
+        firstHour.setOnClickListener(v -> extracted(movie, "firstHourSeats"));
+        secondHour.setOnClickListener(v -> extracted(movie, "secondHourSeats"));
+        thirdHour.setOnClickListener(v -> extracted(movie, "thirdHourSeats"));
+
         listItemView.setOnClickListener(v ->
                 getContext().startActivity(new Intent(getContext().getApplicationContext(), Seats.class)));
 
         return listItemView;
+    }
+
+    private void extracted(Movie movie, String hour) {
+        Intent intent = new Intent(getContext().getApplicationContext(), Seats.class);
+        intent.putExtra("id", movie.getId());
+        intent.putExtra("hour", hour);
+        getContext().startActivity(intent);
     }
 }

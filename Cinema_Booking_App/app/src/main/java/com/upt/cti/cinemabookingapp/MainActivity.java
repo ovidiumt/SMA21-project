@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                         List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
                         for(DocumentSnapshot d : list){
                             Movie movie = d.toObject(Movie.class);
+                            movie.setId(d.getId());
                             movieArrayList.add(movie);
                         }
                         MoviesLVAdapter adapter = new MoviesLVAdapter(MainActivity.this, movieArrayList);

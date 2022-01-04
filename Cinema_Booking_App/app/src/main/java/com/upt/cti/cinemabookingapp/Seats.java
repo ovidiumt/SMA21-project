@@ -1,5 +1,6 @@
 package com.upt.cti.cinemabookingapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,16 +8,25 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Switch;
 import android.widget.ToggleButton;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Seats extends AppCompatActivity {
     Button confirmSeats;
     ToggleButton[] seats = new ToggleButton[9];
+    Map<String, String> seatsStatus = new HashMap<>();
     List<String> checkedSeats = new ArrayList<>();
+    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +44,42 @@ public class Seats extends AppCompatActivity {
         seats[7] = findViewById(R.id.B3);
         seats[8] = findViewById(R.id.C3);
 
+        db = FirebaseFirestore.getInstance();
+
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("id");
+        String hour = intent.getStringExtra("hour");
+
+        loadData(id, hour);
+
         confirmSeats.setOnClickListener(v -> {
             for(ToggleButton t : seats){
                 if(t.isChecked())checkedSeats.add(t.getText().toString());
             }
             startActivity(new Intent(getApplicationContext(), Booking.class));
         });
+    }
+
+    private void loadData(String id, String hour) {
+        DocumentReference documentReference = db.collection("Movies").document(id);
+        documentReference.get().addOnCompleteListener(task -> {
+            if(task.isSuccessful()){
+                DocumentSnapshot documentSnapshot = task.getResult();
+                if(documentSnapshot.exists()){
+                    seatsStatus = (Map<String, String>)documentSnapshot.get(hour);
+                    setSeatsColor();
+                }
+            }
+        });
+    }
+
+    public void setSeatsColor(){
+        for(ToggleButton seat : seats){
+            if(!seatsStatus.get(seat.getText()).equals("free")){
+                seat.setBackgroundColor(Color.RED);
+                seat.setEnabled(false);
+            }
+        }
     }
 
     public void click(View view) {

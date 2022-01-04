@@ -1,5 +1,7 @@
 package com.upt.cti.cinemabookingapp;
 
+import java.util.HashMap;
+
 public class Movie {
 
     private String name;
@@ -7,6 +9,7 @@ public class Movie {
     private String firstHour;
     private String secondHour;
     private String thirdHour;
+    private String id;
 
     public Movie(){
 
@@ -32,6 +35,10 @@ public class Movie {
         return thirdHour;
     }
 
+    public String getId(){
+        return id;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -50,5 +57,9 @@ public class Movie {
 
     public void setThirdHour(String thirdHour){
         this.thirdHour = thirdHour;
+    }
+
+    public void setId(String id){
+        this.id = id;
     }
 }

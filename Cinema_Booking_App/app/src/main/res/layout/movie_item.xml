@@ -37,7 +37,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/buttonHour1"
+            android:id="@+id/firstHour"
             android:layout_width="75dp"
             android:layout_height="40dp"
             android:layout_below="@+id/textViewMovieName"
@@ -46,22 +46,22 @@
             android:layout_toEndOf="@+id/imageViewMovie" />
 
         <Button
-            android:id="@+id/buttonHour2"
+            android:id="@+id/secondHour"
             android:layout_width="75dp"
             android:layout_height="40dp"
             android:layout_below="@+id/textViewMovieName"
             android:layout_marginStart="5dp"
             android:layout_marginTop="42dp"
-            android:layout_toEndOf="@+id/buttonHour1" />
+            android:layout_toEndOf="@+id/firstHour" />
 
         <Button
-            android:id="@+id/buttonHour3"
+            android:id="@+id/thirdHour"
             android:layout_width="75dp"
             android:layout_height="40dp"
             android:layout_below="@+id/textViewMovieName"
             android:layout_marginStart="5dp"
             android:layout_marginTop="42dp"
-            android:layout_toEndOf="@+id/buttonHour2" />
+            android:layout_toEndOf="@+id/secondHour" />
 
     </RelativeLayout>
 
