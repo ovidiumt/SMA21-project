@@ -6,16 +6,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ToggleButton;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,7 +25,7 @@ public class Seats extends AppCompatActivity {
     Button confirmSeats;
     ToggleButton[] seats = new ToggleButton[9];
     Map<String, String> seatsStatus = new HashMap<>();
-    List<String> checkedSeats = new ArrayList<>();
+    ArrayList<String> checkedSeats = new ArrayList<>();
     FirebaseFirestore db;
 
     @Override
@@ -56,8 +56,18 @@ public class Seats extends AppCompatActivity {
             for(ToggleButton t : seats){
                 if(t.isChecked())checkedSeats.add(t.getText().toString());
             }
-            startActivity(new Intent(getApplicationContext(), Booking.class));
+            Intent newIntent = createIntent(id, hour);
+            startActivity(newIntent);
         });
+    }
+
+    private Intent createIntent(String id, String hour) {
+        Intent newIntent = new Intent(getApplicationContext(), Booking.class);
+        newIntent.putExtra("id", id);
+        newIntent.putExtra("hour", hour);
+        newIntent.putStringArrayListExtra("checkedSeats", checkedSeats);
+        newIntent.putExtra("seatsStatus", (Serializable) seatsStatus);
+        return newIntent;
     }
 
     private void loadData(String id, String hour) {
@@ -121,7 +131,4 @@ public class Seats extends AppCompatActivity {
         else toggleButton.setBackgroundColor(0xFFAAAAAA);
     }
 
-    public List<String> getCheckedSeats(){
-        return checkedSeats;
-    }
 }
